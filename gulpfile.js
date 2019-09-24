@@ -24,6 +24,7 @@ function compileSass() {
   );
 }
 
+exports.compileSass = compileSass;
 exports.default = function() {
   watch("./**/*.scss", compileSass);
 };
