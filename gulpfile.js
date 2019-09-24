@@ -9,6 +9,10 @@ function compileSass() {
       .pipe(sourcemaps.init())
       // gulp-sass kullanarak Sass dosyasını CSS'e çeviriyor. "nested", "compact", "expanded", "compressed" değerleri kullanılabilir.
       .pipe(sass({ outputStyle: "expanded" }))
+      .on("error", function swallowError(error) {
+        console.log(error.toString());
+        this.emit("end");
+      })
       .pipe(sourcemaps.write())
       .pipe(
         autoprefixer({
