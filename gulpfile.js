@@ -1,14 +1,14 @@
 var { watch, src, dest } = require("gulp");
-var sass = require("gulp-sass");
+var sassify = require("gulp-sass");
 var autoprefixer = require("gulp-autoprefixer");
 var sourcemaps = require("gulp-sourcemaps");
 
-function compileSass() {
+function sass() {
   return (
     src(["./**/*.scss", "!node_modules/**/*.scss"], { base: "." })
       .pipe(sourcemaps.init())
       // gulp-sass kullanarak Sass dosyasını CSS'e çeviriyor. "nested", "compact", "expanded", "compressed" değerleri kullanılabilir.
-      .pipe(sass({ outputStyle: "expanded" }))
+      .pipe(sassify({ outputStyle: "expanded" }))
       .on("error", function swallowError(error) {
         console.log(error.toString());
         this.emit("end");
@@ -16,7 +16,7 @@ function compileSass() {
       .pipe(sourcemaps.write())
       .pipe(
         autoprefixer({
-          Browserslist: ["last 1 version", "iOS 6"],
+          overrideBrowserslist: ["last 4 version"],
           cascade: false
         })
       )
@@ -24,7 +24,7 @@ function compileSass() {
   );
 }
 
-exports.compileSass = compileSass;
-exports.default = function() {
-  watch("./**/*.scss", compileSass);
+exports.sass = sass;
+exports.watch = function() {
+  watch("./**/*.scss", sass);
 };
