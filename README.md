@@ -1,4 +1,4 @@
-# SASS Compiler
+**SASS Compiler**
 
 ## How to use the compiler?
 
@@ -8,7 +8,7 @@
 
 - You must have Gulp installed globally on your local computer. To install Gulp, open your terminal window and copy and paste "npm install gulp-cli -g" command and hit the enter.
 
-For Unix based systems like MacOs there can be some security issues when trying to install Gulp globally. So, use the "sudo" flag in the beginning of the command: 
+	For Unix based systems like MacOs there can be some security issues when trying to install Gulp globally. So, use the "sudo" flag in the beginning of the command: 
 		
 	$ sudo npm install gulp-cli -g
 
@@ -18,23 +18,24 @@ For Unix based systems like MacOs there can be some security issues when trying 
 
 	$ cd C:\Projects\2018\trunk\main\Turna\Source\Apps\Presentation\Web
 
+<br />
 
 
 - When you're in the folder try to run the command below (for MacOs users "sudo" flag can be helpful if some security issues occurs):
 
 	$ npm install
 
-This command will install all the dependencies that Gulp needs and will generate node_modules folder inside the root folder.
+	This command will install all the dependencies that Gulp needs and will generate node_modules folder inside the root folder.
 
-
+<br />
 
 - Now, if everything went good so far you can run the following command to compile all the SCSS files into CSS.
 
 	$ gulp sass			
 	
-This command will only start the compiler, not the watcher. It will compile all the SCSS files into CSS files with the same name as the SCSS files.
+	This command will only start the compiler, not the watcher. It will compile all the SCSS files into CSS files with the same name as the SCSS files.
 
-To run both the compiler and the watcher use the command below:
+	To run both the compiler and the watcher use the command below:
 
 	$ gulp watch
 
